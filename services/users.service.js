@@ -1,5 +1,5 @@
 const {ObjectId}= require('mongodb');
-// const bcrypt= require("bcrypt");
+//const bcrypt= require("bcrypt");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 
@@ -7,6 +7,8 @@ const JWT_SECRET='$crm@pp#';
 
 const db= require('../shared/db.connect');
 const sendEmail = require('../shared/sendMail');
+const { send } = require('process');
+
 const service={
 
     async insertUser(req,res){
@@ -85,7 +87,7 @@ const service={
             //Check password
             // const isCorrect= await bcrypt.compare(req.body.password,user.password);
             const isCorrect=false;
-            if(req.body.password===user.password) isCorrect= true;
+            if(req.body.password===user.password) isCorrect=true;
             if(!isCorrect) return res.status(403).send('Username or password incorrect');
             //If correct generate auth token
             const authToken= jwt.sign(

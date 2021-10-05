@@ -1,7 +1,9 @@
 const {ObjectId}= require('mongodb');
+// const bcrypt= require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const db= require('../shared/db.connect');
-// const sendEmail = require('../shared/sendMail');
+const sendEmail = require('../shared/sendMail');
 
 const contactsService={
 
