@@ -6,7 +6,7 @@ const db= require('./shared/db.connect');
 const userRoutes = require('./routes/users.route');
 const contactRoutes= require('./routes/contacts.route');
 const leadRoutes= require('./routes/leads.route');
-const serviceRequestsRoutes= require('./routes/service_requests.route');
+const serviceRequestsRoutes= require('./routes/servicerequests.route');
 
 const app= express();
 
@@ -33,8 +33,4 @@ const app= express();
     } catch(err){
         console.log(`Error starting servver ${err}`);
     }
-})()
-
-
-
-console.log('Port is running');
+})();
