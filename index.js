@@ -6,7 +6,7 @@ const db= require('./shared/db.connect');
 const userRoutes = require('./routes/users.route');
 const contactRoutes= require('./routes/contacts.route');
 const leadRoutes= require('./routes/leads.route');
-//const serviceRequestsRoutes= require('./routes/servicerequests.route');
+const serviceRequestsRoutes= require('./routes/servicerequests.route');
 
 const app= express();
 
@@ -26,7 +26,7 @@ const app= express();
         app.use('/users',userRoutes);
         app.use('/contacts',contactRoutes);
         app.use('/leads',leadRoutes);
-        //app.use('/requests',serviceRequestsRoutes);
+        app.use('/requests',serviceRequestsRoutes);
 
         app.listen(5000);
         console.log('Started and running');

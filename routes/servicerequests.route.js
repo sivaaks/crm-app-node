@@ -1,6 +1,6 @@
 const route= require('express').Router();
 
-const service= require('../services/service-requests.service');
+const service= require('../services/servicerequests.service');
 
 route.get('/',service.getRequests);
 route.post('/',service.insertRequest);
