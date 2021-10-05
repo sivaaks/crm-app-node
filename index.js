@@ -17,7 +17,7 @@ const app= express();
         await db.connect();
 
         app.use(cors({
-            origin:['http://localhost:3000']
+            origin:['http://localhost:3000','https://siva-react-crm.netlify.app']
            }));
 
         //Middleware to parse data into JSON

@@ -1,6 +1,6 @@
 const {MongoClient, ConnectionCheckedInEvent}= require('mongodb');
 
-const DB_URL='mongodb://localhost:27017';
+const DB_URL='mongodb+srv://admin:admin@cluster0.icp5l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const DB_NAME='crmapp';
 
 const client = new MongoClient(DB_URL);
