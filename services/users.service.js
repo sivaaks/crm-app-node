@@ -21,7 +21,7 @@ const service={
                 const data= await db.users.insertOne(req.body);
                 const verifyToken=crypto.randomBytes(18).toString("hex");
                 await db.users.findOneAndUpdate({email:req.body.email},{$set:{verifyToken}});
-                const link=`http://localhost:3001/users/verify?token=${verifyToken}`;
+                const link=`https://siva-crm-node.herokuapp.com/users/verify?token=${verifyToken}`;
                 await sendEmail(req.body.email,'Verify email','',`<p>Click on the below link to verify your email</p> <br> <a href=${link}>${link}</a>`);
                 res.status(200).send(data);
             }catch(err){
@@ -86,7 +86,7 @@ const service={
             if(!verified) return res.status(401).send('Verify your email to login');
             //Check password
             // const isCorrect= await bcrypt.compare(req.body.password,user.password);
-            const isCorrect=false;
+            let isCorrect=false;
             if(req.body.password===user.password) isCorrect=true;
             if(!isCorrect) return res.status(403).send('Username or password incorrect');
             //If correct generate auth token
